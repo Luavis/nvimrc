@@ -32,6 +32,11 @@ Plug 'Shougo/vimfiler.vim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'davidhalter/jedi-vim'
 Plug 'rhysd/committia.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+
+Plug 'The-NERD-Tree'
+
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
@@ -44,6 +49,7 @@ call plug#end()
 
 "Syntax highlighting.
 syntax on
+set number
 
 "Softtab -- use spaces instead tabs.
 set expandtab
@@ -74,12 +80,29 @@ set tabpagemax=25
 
 filetype plugin on
 
+set bg=dark
+let g:solarized_termcolors=256
+colorscheme solarized
+
+
+let g:committia_open_only_vim_starting=0
+
+set gfn=D2Coding:h13
+map <F2> :NERDTreeToggle<cr>
+
 "Some additional syntax highlighters.
 au! BufRead,BufNewFile *.wsgi setfiletype python
 au! BufRead,BufNewFile *.sass setfiletype sass
 au! BufRead,BufNewFile *.scss setfiletype scss
 au! BufRead,BufNewFile *.haml setfiletype haml
 au! BufRead,BufNewFile *.less setfiletype less
+
+
+"highlight whitespace trailling and remove it when save
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+au FileType c,cpp,java,php,javascript,html,css,objective-c
+    \ au BufWritePre <buffer> :%s/\s\+$//e
 
 "These languages have their own tab/indent settings.
 au FileType cpp    setl ts=2 sw=2 sts=2
@@ -122,10 +145,13 @@ set nofoldenable
 "I dislike visual bell as well.
 set novisualbell
 
+let g:deoplete#enable_at_start = 1
+
+colorscheme solarized
+
 "gVim-specific configurations (including MacVim).
 if has("gui_running")
   set bg=dark
-  colorscheme material-theme
   set guioptions=egmrLt
   set linespace=1
 endif
@@ -154,5 +180,28 @@ set undofile
 set undodir=~/.config/nvim/undo
 nnoremap <F5> :MundoToggle
 
+
+noremap <D-S-]> gt
+noremap <D-S-[> gT
+map <D-1> 1gt
+map <D-2> 2gt
+map <D-3> 3gt
+map <D-4> 4gt
+map <D-5> 5gt
+map <D-6> 6gt
+map <D-7> 7gt
+map <D-8> 8gt
+map <D-9> 9gt
+map <D-0> :tablast<CR>
+
 "Use Vimfiler as default explorer like netrw
 let g:vimfiler_as_default_explorer = 1
+
+hi DiffAdd cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+hi DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+hi DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+hi DiffText cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
+
+
+set background=dark
+
