@@ -13,6 +13,7 @@ Plug 'vim-scripts/darktango.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'vim-scripts/xoria256.vim'
 Plug 'jdkanani/vim-material-theme'
+Plug 'chriskempson/tomorrow-theme'
 
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -180,20 +181,6 @@ set undofile
 set undodir=~/.config/nvim/undo
 nnoremap <F5> :MundoToggle
 
-
-noremap <D-S-]> gt
-noremap <D-S-[> gT
-map <D-1> 1gt
-map <D-2> 2gt
-map <D-3> 3gt
-map <D-4> 4gt
-map <D-5> 5gt
-map <D-6> 6gt
-map <D-7> 7gt
-map <D-8> 8gt
-map <D-9> 9gt
-map <D-0> :tablast<CR>
-
 "Use Vimfiler as default explorer like netrw
 let g:vimfiler_as_default_explorer = 1
 
@@ -204,4 +191,5 @@ hi DiffText cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
 
 
 set background=dark
+colorscheme tomorrow
 
