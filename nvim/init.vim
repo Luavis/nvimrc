@@ -37,6 +37,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
 Plug 'The-NERD-Tree'
+Plug 'Valloric/YouCompleteMe'
 
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -189,7 +190,7 @@ hi DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
 hi DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
 hi DiffText cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
 
-
 set background=dark
 colorscheme tomorrow
+set nopaste
 
