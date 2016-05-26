@@ -4,9 +4,11 @@ if [[ "$(which pip2)" != "" ]]; then
   pip2 install --user neovim jedi
 elif [[ "$(which pip3)" != "" ]]; then
   pip3 install --user neovim jedi
+elif [[ "$(which pip)" != "" ]]; then
+  pip install --user neovim jedi
 else
-    echo 'You need to install python-pip first'
-    exit
+  echo 'You need to install python-pip first'
+  exit
 fi
 
 # Install vim-plug
