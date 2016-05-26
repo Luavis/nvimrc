@@ -53,6 +53,10 @@ call plug#end()
 syntax on
 set number
 
+"Not create swapfile
+set nowrapscan
+set noswapfile
+
 "Softtab -- use spaces instead tabs.
 set expandtab
 set tabstop=4 shiftwidth=4 sts=4
@@ -90,7 +94,7 @@ colorscheme solarized
 let g:committia_open_only_vim_starting=0
 
 set gfn=D2Coding:h13
-map <F2> :NERDTreeToggle<cr>
+map <F3> :NERDTreeToggle<cr>
 
 "Some additional syntax highlighters.
 au! BufRead,BufNewFile *.wsgi setfiletype python
@@ -149,8 +153,6 @@ set novisualbell
 
 let g:deoplete#enable_at_start = 1
 
-colorscheme solarized
-
 "gVim-specific configurations (including MacVim).
 if has("gui_running")
   set bg=dark
@@ -180,7 +182,8 @@ let g:airline_powerline_fonts = 1
 "Mundo -- Undo tree visualization
 set undofile
 set undodir=~/.config/nvim/undo
-nnoremap <F5> :MundoToggle
+nnoremap <F5> :MundoToggle<CR>
+let g:mundo_right=1
 
 "Use Vimfiler as default explorer like netrw
 let g:vimfiler_as_default_explorer = 1
@@ -193,4 +196,12 @@ hi DiffText cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
 set background=dark
 colorscheme tomorrow
 set nopaste
+
+"Move tab next-previous
+nnoremap <C-S-Left> :tabprevious<CR>
+nnoremap <C-S-Right> :tabnext<CR>
+nnoremap <F4> :bel sp 50 \| resize 10 \| terminal<CR>
+
+"nnoremap <C-S-T>    :tabe<CR>
+"nnoremap <C-W>      :q<CR>
 
